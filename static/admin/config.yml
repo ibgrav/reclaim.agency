@@ -1,23 +1,26 @@
 backend:
-  name: git-gateway
+  name: test-repo #test-repo #git-gateway
   branch: master
 
 media_folder: static/assets
 public_folder: /assets
 collections:
-  - name: intro
-    label: Intro
-    folder: md
-    create: false
-    fields:
-      - { name: path, label: Path }
-      - {label: Title, name: title, widget: hidden}
-      - {label: Body, name: body, widget: markdown}
-  - name: screenplay
-    label: Screenplay
-    folder: md
-    create: false
-    fields:
-      - { name: path, label: Path }
-      - {label: Title, name: title, widget: hidden}
-      - {label: Body, name: body, widget: markdown}
+  - label: "Content"
+    name: "content"
+    editor:
+      preview: false
+    files:
+      - name: forward
+        label: Forward
+        file: md/forward
+        description: "Edit tips here"
+        fields:
+          - { label: Title, name: title, widget: hidden }
+          - { label: Body, name: body, widget: markdown }
+      - name: screenplay
+        label: Screenplay
+        file: md/screnplay
+        description: "Explain how to edit here"
+        fields:
+          - { label: Title, name: title, widget: hidden }
+          - { label: Body, name: body, widget: markdown }

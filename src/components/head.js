@@ -10,16 +10,20 @@ export default () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
+      console.log('SET TITLE')
       if (titleLength > 0) {
         titleLength--
         const periods = '.'.repeat(titleLength)
         setTitle(`${periods}reclaim${periods}agency${periods}`)
-      } else if (document.title.length > 3) {
+      } else if (document.title.length > 3 && finalCount === 0) {
         setTitle(document.title.substring(1, document.title.length - 1))
       } else if (finalCount < titleFinal.length - 1) {
         finalCount++
         setTitle(titleFinal.substring(0, finalCount))
-      } else setTitle(titleFinal)
+      } else {
+        setTitle(titleFinal)
+        clearInterval(interval)
+      }
     }, 1000)
 
     return () => clearInterval(interval)

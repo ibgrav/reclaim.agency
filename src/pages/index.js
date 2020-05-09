@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from '../components/head'
 import Styles from '../components/styles'
-import Intro from '../components/intro'
+import Forward from '../components/forward'
 import Screenplay from '../components/screenplay'
 
 export default () => {
@@ -9,7 +9,7 @@ export default () => {
     <main>
       <Head />
       <Styles />
-      <Intro />
+      <Forward />
       <Screenplay />
     </main>
   )

@@ -25,7 +25,7 @@ const Hook = styled.div`
   }
 `
 
-const Intro = styled.div`
+const Forward = styled.div`
   margin-top: 100vh;
   background-image: linear-gradient(transparent,rgba(255,255,255,0.95));
 
@@ -52,7 +52,7 @@ export default () => {
     <StaticQuery
       query={graphql`
         query {
-          intro: markdownRemark(frontmatter: {title: {eq: "intro"}}) {
+          forward: markdownRemark(frontmatter: {title: {eq: "forward"}}) {
             html
             frontmatter {
               title
@@ -71,7 +71,7 @@ export default () => {
               type="video/mp4"
             />
           </Hook>
-          <Intro ref={ref} dangerouslySetInnerHTML={{ __html: data.intro.html }} />
+          <Forward ref={ref} dangerouslySetInnerHTML={{ __html: data.forward.html }} />
           <Transition>
             <video />
           </Transition>
