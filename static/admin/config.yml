@@ -12,4 +12,5 @@ collections:
     folder: "content"
     create: false
     fields:
-    - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
