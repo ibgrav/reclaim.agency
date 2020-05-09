@@ -1,6 +1,13 @@
 import { createGlobalStyle } from "styled-components"
 
 export default createGlobalStyle`
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  * {
+    -ms-overflow-style: none;
+  }
+
   html {
     font-size: 16px;
   }
