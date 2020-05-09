@@ -19,7 +19,7 @@ collections:
           - { label: Body, name: body, widget: markdown }
       - name: screenplay
         label: Screenplay
-        file: md/screnplay.md
+        file: md/screenplay.md
         description: "Explain how to edit here"
         fields:
           - { label: Title, name: title, widget: hidden }
