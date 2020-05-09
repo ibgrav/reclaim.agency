@@ -6,17 +6,22 @@ import { useInView } from 'react-intersection-observer'
 const Box = styled.div`
   width: 100%;
   position: relative;
+`
+
+const Hook = styled.div`
+  width: 100%;
+  z-index: -1;
+  position: relative;
+  transition: opacity 3s;
+  opacity: ${props => props.inView ? 0.1 : 1};
 
   video {
     position: fixed;
-    z-index: -1;
     right: 0;
     bottom: 0;
     min-width: 100%;
     min-height: 100%;
     transform: translateX(calc((100% - 100vw) / 2));
-    transition: opacity 3s;
-    opacity: ${props => props.inView ? 0.1 : 1};
   }
 `
 
@@ -56,14 +61,16 @@ export default () => {
         }
       `}
       render={data => (
-        <Box inView={inView}>
-          <video
-            src="/assets/hook.mp4"
-            muted="muted"
-            autoPlay="autoplay"
-            loop="loop"
-            type="video/mp4"
-          />
+        <Box>
+          <Hook inView={inView}>
+            <video
+              src="/assets/hook.mp4"
+              muted="muted"
+              autoPlay="autoplay"
+              loop="loop"
+              type="video/mp4"
+            />
+          </Hook>
           <Intro ref={ref} dangerouslySetInnerHTML={{ __html: data.intro.html }} />
           <Transition>
             <video />

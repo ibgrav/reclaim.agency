@@ -13,7 +13,8 @@ export default createGlobalStyle`
   }
   
   body {
-    overscroll-behavior-y: none;
+    /* overscroll-behavior-y: none; */
+    overflow-x: hidden;
     margin: 0;
     font-family: "Courier New",Courier,monospace;
     line-height: 40px;
