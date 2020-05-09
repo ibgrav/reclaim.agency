@@ -1,6 +1,5 @@
 ---
-path: /intro
-title: intro
+title: forward
 ---
 ## This is a heading
 
