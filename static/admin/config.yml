@@ -8,8 +8,16 @@ collections:
   - name: intro
     label: Intro
     folder: md
-    create: true
+    create: false
     fields:
       - { name: path, label: Path }
-      - { name: title, label: Title }
-      - { name: body, label: Body, widget: markdown }
+      - {label: Title, name: title, widget: hidden}
+      - {label: Body, name: body, widget: markdown}
+  - name: screenplay
+    label: Screenplay
+    folder: md
+    create: false
+    fields:
+      - { name: path, label: Path }
+      - {label: Title, name: title, widget: hidden}
+      - {label: Body, name: body, widget: markdown}

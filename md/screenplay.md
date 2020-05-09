@@ -1,5 +1,5 @@
 ---
-path: "/"
+path: "/screenplay"
 title: "screenplay"
 ---
 
