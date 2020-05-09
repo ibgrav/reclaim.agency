@@ -13,14 +13,23 @@ export default createGlobalStyle`
   }
   
   body {
-    /* overscroll-behavior-y: none; */
+    overscroll-behavior: none;
     overflow-x: hidden;
     margin: 0;
     font-family: "Courier New",Courier,monospace;
-    line-height: 40px;
     font-size: 1em;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+  }
+
+  p {
+    line-height: 40px;
+    font-size: 1em;
+  }
+
+  h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+    font-size: 1.5em;
   }
 `
