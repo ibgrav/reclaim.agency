@@ -12,7 +12,7 @@ const Hook = styled.div`
   width: 100%;
   z-index: -1;
   position: relative;
-  transition: opacity 3s;
+  transition: opacity 1s;
   opacity: ${props => props.inView ? 0.1 : 1};
 
   video {
