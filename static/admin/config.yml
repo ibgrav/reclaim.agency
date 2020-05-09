@@ -12,14 +12,14 @@ collections:
     files:
       - name: forward
         label: Forward
-        file: md/forward
+        file: md/forward.md
         description: "Edit tips here"
         fields:
           - { label: Title, name: title, widget: hidden }
           - { label: Body, name: body, widget: markdown }
       - name: screenplay
         label: Screenplay
-        file: md/screnplay
+        file: md/screnplay.md
         description: "Explain how to edit here"
         fields:
           - { label: Title, name: title, widget: hidden }
