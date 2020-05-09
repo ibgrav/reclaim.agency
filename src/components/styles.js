@@ -24,7 +24,7 @@ export default createGlobalStyle`
   }
 
   p {
-    line-height: 40px;
+    line-height: 30px;
     font-size: 1em;
   }
 
