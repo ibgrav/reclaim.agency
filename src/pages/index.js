@@ -10,6 +10,7 @@ const Transition = styled.div`
   height: 100vh;
   line-height: 0;
   position: relative;
+  overflow: hidden;
 
   video {
     min-width: 100vw;
