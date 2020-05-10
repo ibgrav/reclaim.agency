@@ -28,6 +28,7 @@ const Transition = styled.video`
   width: 100vw;
   height: auto;
   line-height: 0;
+  padding: 30px 0;
 `
 
 const autoplay = {
