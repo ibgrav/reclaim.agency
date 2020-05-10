@@ -29,13 +29,13 @@ export default () => {
       <Styles />
       <Forward />
       <Transition>
-        <video
+        {/* <video
           src="/assets/hook.mp4"
           muted="muted"
           autoPlay="autoplay"
           loop="loop"
           type="video/mp4"
-        />
+        /> */}
       </Transition>
       <Screenplay />
     </main>

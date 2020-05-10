@@ -10,7 +10,6 @@ const Flex = styled.div`
   flex-flow: row;
   justify-content: center;
   padding: 20px 0;
-  ${props => console.log(props.hasImg)}
 
   img {
     width: 80vw;

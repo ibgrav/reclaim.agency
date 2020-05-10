@@ -3,53 +3,47 @@ import styled from 'styled-components'
 import { useInView } from 'react-intersection-observer'
 import Row from './row'
 
-const Box = styled.div`
-  width: 100%;
-  position: relative;
+const HookFill = styled.div`
+  width: 100vw;
+  height: 100vh;
 `
 
-const Hook = styled.div`
-  width: 100%;
-  z-index: -1;
-  position: relative;
+const Hook = styled.video`
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
   transition: opacity 1s;
   overflow: hidden;
+  z-index: -1;
   opacity: ${props => props.inView ? 0.1 : 1};
-
-  video {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-    transform: translateX(calc((100% - 100vw) / 2));
-  }
+  transform: translateX(calc((100% - 100vw) / 2));
 `
 
 const Forward = styled.div`
-  margin-top: 100vh;
   padding-bottom: 100px;
 `
 
 export default () => {
   const [ref, inView] = useInView({
-    threshold: 0.04,
+    threshold: 0.8,
   })
 
   return (
-    <Box>
-      <Hook inView={inView}>
-        <video
-          src="/assets/hook.mp4"
-          muted="muted"
-          autoPlay="autoplay"
-          loop="loop"
-          type="video/mp4"
-        >
-          <track />
-        </video>
-      </Hook>
-      <Forward ref={ref}>
+    <>
+      {/* <Hook inView={!inView}> */}
+      <Hook
+        inView={!inView}
+        src="/assets/hook.mp4"
+        muted="muted"
+        autoPlay="autoplay"
+        loop="loop"
+        type="video/mp4"
+      />
+      {/* </Hook> */}
+      <HookFill ref={ref} />
+      <Forward>
         <Row center={<h2>This is a heading</h2>} />
         <Row
           center={
@@ -92,6 +86,6 @@ export default () => {
           }
         />
       </Forward>
-    </Box>
+    </>
   )
 }

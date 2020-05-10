@@ -10,10 +10,11 @@ export default createGlobalStyle`
 
   html {
     font-size: 16px;
+    scroll-behavior: smooth;
   }
   
   body {
-    /* overscroll-behavior: none; */
+    overscroll-behavior: none;
     overflow-x: hidden;
     margin: 0;
     font-family: "Courier New",Courier,monospace;

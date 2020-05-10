@@ -3,7 +3,6 @@ import styled from "styled-components"
 import Row from './row'
 
 const Screenplay = styled.div`
-  background-color: rgba(255,255,255,0.95);
   padding: 100px 0;
 `
 
