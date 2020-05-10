@@ -24,21 +24,10 @@ const Hook = styled.video`
   transform: translateX(calc((100% - 100vw) / 2));
 `
 
-const Transition = styled.div`
+const Transition = styled.video`
   width: 100vw;
-  height: 100vh;
+  height: auto;
   line-height: 0;
-  position: relative;
-  overflow: hidden;
-
-  video {
-    min-width: 100%;
-    min-height: 100%;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
 `
 
 const autoplay = {
@@ -65,12 +54,10 @@ export default () => {
       />
       <HookFill ref={ref} />
       <Forward />
-      <Transition>
-        <video
-          src="/assets/hook.mp4"
-          {...autoplay}
-        />
-      </Transition>
+      <Transition
+        src="/assets/sound.mp4"
+        controls
+      />
       <Screenplay />
     </main>
   )
