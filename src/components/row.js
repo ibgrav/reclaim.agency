@@ -1,50 +1,58 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const firstBreak = '@media screen and (max-width: 900px)';
-const secondBreak = '@media screen and (max-width: 500px)';
+const firstBreak = '@media screen and (max-width: 1000px)';
+const secondBreak = '@media screen and (max-width: 850px)';
+const thirdBreak = '@media screen and (max-width: 700px)';
 
-const FlexBox = styled.div`
+const Flex = styled.div`
   display: flex;
   flex-flow: row;
   justify-content: center;
   padding: 20px 0;
+  ${props => console.log(props.hasImg)}
 
   img {
     width: 80vw;
   }
 
-  ${firstBreak} {
+  ${thirdBreak} {
     flex-flow: column;
-    padding: 0 20px;
+    padding: 0 ${props => props.hasImg ? 0 : 20}px;
     box-sizing: border-box;
 
     img {
+      margin: 30px 0 20px 0;
       width: 100%;
     }
   }
 `
 
-const LeftBox = styled.div`
+const Left = styled.div`
   flex: 1;
   text-align: center;
   align-self: auto;
-  padding-top: 10px;
+  padding: 10px 10px 0px 10px;
 
-  ${firstBreak} {
+  ${thirdBreak} {
+    div {
+      padding: 30px 0 20px 0;
+    }
+
     :nth-child(2) {
       padding: 100px 0;
     }
   }
 `
 
-const RightBox = styled.div`
+const Right = styled.div`
   flex: 1;
+  padding: 0 10px;
 
   p {
     display: flex;
     margin: auto;
-    width: 300px;
+    max-width: 300px;
     font-size: 0.8em;
     line-height: initial;
     padding-top: 10px;
@@ -55,14 +63,35 @@ const RightBox = styled.div`
     padding-right: 3px;
     font-size: 0.7em;
   }
+
+  ${firstBreak} {
+    flex: 2;
+  }
+  ${thirdBreak} {
+    p {
+      max-width: initial;
+    }
+  }
 `
 
 const CenterBox = styled.div`
   flex: 1;
-  min-width: 600px;
+  padding: 0 10px;
+  min-width: 500px;
+
+  ${firstBreak} {
+    flex: 2;
+  }
+
+  ${secondBreak} {
+    min-width: 400px;
+  }
+
+  ${thirdBreak} {
+    min-width: auto;
+  }
 
   h2, p {
-    max-width: 600px;
     margin: 0 auto;
   }
 
@@ -74,27 +103,23 @@ const CenterBox = styled.div`
     font-size: 0.7em;
     line-height: 0;
   }
-
-  ${firstBreak} {
-    min-width: auto;
-  }
 `
 
 export default ({ left, center, right, img }) => {
   return (
-    <FlexBox>
+    <Flex hasImg={img !== undefined}>
       {img ? <img src={img} alt={img} /> :
         <>
-          <LeftBox>{left}</LeftBox>
+          <Left>{left}</Left>
           <CenterBox>{center}</CenterBox>
-          <RightBox>{right && Array.isArray(right) && right.map((item, i) => (
+          <Right>{right && Array.isArray(right) && right.map((item, i) => (
             <p key={i}>
               <sup>{item.num}</sup>
               {item.text}
             </p>
-          ))}</RightBox>
+          ))}</Right>
         </>
       }
-    </FlexBox>
+    </Flex>
   )
 }
