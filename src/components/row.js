@@ -1,5 +1,6 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+import { videoProps } from '../utils'
 
 const firstBreak = '@media screen and (max-width: 1000px)';
 const secondBreak = '@media screen and (max-width: 850px)';
@@ -10,10 +11,6 @@ const Flex = styled.div`
   flex-flow: row;
   justify-content: center;
   padding: 20px 0;
-
-  img {
-    width: 80vw;
-  }
 
   ${thirdBreak} {
     flex-flow: column;
@@ -27,11 +24,35 @@ const Flex = styled.div`
   }
 `
 
+const hue = keyframes`
+  from {
+    filter: hue-rotate(0deg);
+  }
+
+  to {
+    filter: hue-rotate(360deg);
+  }
+`
+
 const Left = styled.div`
   flex: 1;
   text-align: center;
   align-self: auto;
   padding: 10px 10px 0px 10px;
+  
+  img {
+    max-width: 100%;
+    max-height: 300px;
+    height: auto;
+    width: auto;
+    transition: filter 1s;
+  }
+
+  img:hover {
+    animation: ${hue} 1s infinite;
+    cursor: pointer;
+  }
+  
 
   ${thirdBreak} {
     div {
@@ -102,22 +123,32 @@ const CenterBox = styled.div`
     font-size: 0.7em;
     line-height: 0;
   }
+
+  img {
+    width: 80vw;
+  }
+
+  video {
+    width: 60%;
+    height: auto;
+  }
 `
 
-export default ({ left, center, right, img }) => {
+export default ({ left, center, right, img, video }) => {
   return (
-    <Flex hasImg={img !== undefined}>
-      {img ? <img src={img} alt={img} /> :
-        <>
-          <Left>{left}</Left>
-          <CenterBox>{center}</CenterBox>
-          <Right>{right && Array.isArray(right) && right.map((item, i) => (
-            <p key={i}>
-              <sup>{item.num}</sup>
-              {item.text}
-            </p>
-          ))}</Right>
-        </>
+    <Flex hasImg={img !== undefined || video !== undefined}>
+      {img ? <img src={img} loading="lazy" alt={img} /> :
+        video ? <video src={video} {...videoProps} /> :
+          <>
+            <Left>{left}</Left>
+            <CenterBox>{center}</CenterBox>
+            <Right>{right && Array.isArray(right) && right.map((item, i) => (
+              <p key={i}>
+                <sup>{item.num}</sup>
+                {item.text}
+              </p>
+            ))}</Right>
+          </>
       }
     </Flex>
   )

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useInView } from 'react-intersection-observer'
+import { videoProps } from '../utils'
 import Head from '../components/head'
 import Styles from '../components/styles'
 import Forward from '../components/forward'
@@ -31,14 +32,6 @@ const Transition = styled.video`
   padding: 30px 0;
 `
 
-const autoplay = {
-  muted: "muted",
-  playsInline: "playsinline",
-  autoPlay: "autoplay",
-  loop: "loop",
-  type: "video/mp4"
-}
-
 export default () => {
   const [ref, inView] = useInView({
     threshold: 0.8,
@@ -51,7 +44,7 @@ export default () => {
       <Hook
         inView={!inView}
         src="/assets/hook.mp4"
-        {...autoplay}
+        {...videoProps}
       />
       <HookFill ref={ref} />
       <Forward />
