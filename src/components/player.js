@@ -14,8 +14,6 @@ const Button = styled.div`
   }
 `
 
-const Track = styled.div``
-
 export default ({ src }) => {
   const [isOn, setIsOn] = useState(false)
   const audio = useRef(null)
@@ -30,9 +28,6 @@ export default ({ src }) => {
 
   return (
     <div>
-      <Track>
-        <span></span>
-      </Track>
       <Button onClick={toggle}>{isOn ? '||' : '|>'}</Button>
       <Audio
         ref={audio}
