@@ -47,7 +47,9 @@ export default () => {
             text: "What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry."
           }
         ]}
-      /><Row
+      />
+      <Row video="/assets/shape_test.mp4" />
+      <Row
         left={
           <img loading="lazy" src="/assets/year_2050.png" />
         }

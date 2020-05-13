@@ -12,14 +12,23 @@ const Flex = styled.div`
   justify-content: center;
   padding: 20px 0;
 
+  video {
+    width: 60%;
+    height: auto;
+  }
+
   ${thirdBreak} {
     flex-flow: column;
     padding: 0 ${props => props.hasImg ? 0 : 20}px;
     box-sizing: border-box;
 
     img {
-      margin: 30px 0 20px 0;
       width: 100%;
+    }
+
+    video {
+      width: 100%;
+      height: auto;
     }
   }
 `
@@ -41,8 +50,8 @@ const Left = styled.div`
   padding: 10px 10px 0px 10px;
   
   img {
-    max-width: 100%;
-    max-height: 300px;
+    max-width: 250px;
+    max-height: 250px;
     height: auto;
     width: auto;
     transition: filter 1s;
@@ -127,17 +136,12 @@ const CenterBox = styled.div`
   img {
     width: 80vw;
   }
-
-  video {
-    width: 60%;
-    height: auto;
-  }
 `
 
 export default ({ left, center, right, img, video }) => {
   return (
     <Flex hasImg={img !== undefined || video !== undefined}>
-      {img ? <img src={img} loading="lazy" alt={img} /> :
+      {img ? <img width="80vw" height="auto" src={img} loading="lazy" alt={img} /> :
         video ? <video src={video} {...videoProps} /> :
           <>
             <Left>{left}</Left>
