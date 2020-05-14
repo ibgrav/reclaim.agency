@@ -1,4 +1,10 @@
-(function setTitle() {
+window.addEventListener("load", function () {
+  createObserver();
+  setTitle();
+  setIcon();
+}, false);
+
+function setTitle() {
   let titleLength = 20
   let finalCount = 0
   const titleFinal = 'R_E_C_L_A_I_M_E_D'
@@ -18,15 +24,17 @@
       clearInterval(interval)
     }
   }, 1000)
-})();
-
-function setIcon() {
-
 }
 
-window.addEventListener("load", function () {
-  createObserver();
-}, false);
+function setIcon() {
+  let count = 1;
+  setInterval(function () {
+    var link = document.querySelector("link[rel*='icon']");
+    link.href = `/assets/icons/favicon_${count}.png`;
+    count++;
+    if(count > 6) count = 1;
+  }, 1000)
+}
 
 function createObserver() {
   const forward = document.querySelector("#forward");
