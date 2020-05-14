@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled, { keyframes } from 'styled-components'
 import { videoProps } from '../utils'
 
@@ -55,11 +55,23 @@ const Left = styled.div`
     height: auto;
     width: auto;
     transition: filter 1s;
+    margin-bottom: 30px;
+    opacity: ${props => props.active ? 0.4 : 1};
+    transition: opacity 500ms;
   }
 
   img:hover {
     animation: ${hue} 1s infinite;
     cursor: pointer;
+  }
+
+  div {
+    text-align: left;
+    max-width: 300px;
+    font-size: 0.8em;
+    margin: auto;
+    opacity: ${props => props.active ? 1 : 0};
+    transition: opacity 500ms;
   }
   
 
@@ -139,12 +151,14 @@ const CenterBox = styled.div`
 `
 
 export default ({ left, center, right, img, video }) => {
+  const [leftActive, setLeftActive] = useState(false)
+
   return (
     <Flex hasImg={img !== undefined || video !== undefined}>
       {img ? <img width="80vw" height="auto" src={img} loading="lazy" alt={img} /> :
         video ? <video src={video} {...videoProps} /> :
           <>
-            <Left>{left}</Left>
+            <Left active={leftActive} onClick={() => setLeftActive(!leftActive)}>{left}</Left>
             <CenterBox>{center}</CenterBox>
             <Right>{right && Array.isArray(right) && right.map((item, i) => (
               <p key={i}>
