@@ -1,0 +1,18 @@
+{
+  "name": "reclaimagency",
+  "version": "1.0.0",
+  "description": "reclaim.agency",
+  "main": "page/index.js",
+  "scripts": {
+    "start": "next",
+    "build": "next build"
+  },
+  "keywords": [],
+  "author": "Isaac Graves",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^9.4.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
