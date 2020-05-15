@@ -148,6 +148,10 @@ h3 {
   display: block;
 }
 
+.box .left .date img.large {
+  width: 80%;
+}
+
 .box .left .date p {
   opacity: 0;
   transition: opacity 500ms;
@@ -231,6 +235,15 @@ img.full.left {
   width: 50vw;
 }
 
+@media screen and (max-width: 1200px) {
+  .box .main {
+    flex: 3;
+  }
+  .box .center {
+    flex: 2;
+  }
+}
+
 @media screen and (max-width: 900px) {
   .box .right div {
     max-width: 250px;
@@ -249,7 +262,6 @@ img.full.left {
   }
   .box .row {
     flex-flow: column;
-    padding-right: 10px;
   }
   .box .left .date p {
     height: initial;
