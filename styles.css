@@ -28,6 +28,10 @@ body {
   }
 }
 
+.fade-in {
+  animation: fade-in 1s forwards;
+}
+
 @keyframes dance {
   from {
     filter: hue-rotate(0deg);
@@ -60,6 +64,10 @@ h3 {
 
 #bg.fade {
   filter: opacity(0.2);
+}
+
+#bg.hide {
+  display: none;
 }
 
 #bg-fill {
@@ -217,4 +225,8 @@ img.full.right {
 
 img.full.left {
   margin: 0;
+}
+
+.box img.full {
+  width: 50vw;
 }
