@@ -6,15 +6,11 @@
   -ms-overflow-style: none;
 }
 
-html {
-  font-size: 16px;
-}
-
 body {
   overflow-x: hidden;
   margin: 0;
   font-family: "Courier New", Courier, monospace;
-  font-size: 1em;
+  font-size: 16px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
@@ -29,6 +25,15 @@ body {
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes dance {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
   }
 }
 
@@ -63,6 +68,7 @@ h3 {
 
 #forward {
   background-image: linear-gradient(rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 1));
+  font-family: "Courier", Courier, monospace;
 }
 
 .box {
@@ -74,7 +80,7 @@ h3 {
 
 .box .right {
   flex: 1;
-  font-size: 0.8em;
+  font-size: 12px;
   line-height: 20px;
 }
 
@@ -98,10 +104,10 @@ h3 {
 .box .right sup {
   transform: translateX(-1px);
   font-weight: bold;
+  font-size: 12px;
 }
 
 .box .right sup a {
-  font-size: 1.5em;
   text-decoration: none;
 }
 
@@ -118,13 +124,33 @@ h3 {
 .box .left {
   flex: 1;
   padding-right: 30px;
-  font-size: 0.8em;
+  font-size: 12px;
   line-height: 20px;
 }
 
-.box .left img {
-  width: 100%;
+.box .left .date {
+  max-width: 350px;
+  margin: 20px auto;
+}
+
+.box .left .date img {
+  margin: auto;
   height: auto;
+  width: 70%;
+  display: block;
+}
+
+.box .left .date p {
+  opacity: 0;
+  transition: opacity 500ms;
+}
+
+.box .left .date:hover p {
+  opacity: 1;
+}
+
+.box .left .date:hover img {
+  animation: dance 1s infinite;
 }
 
 .box .center {
@@ -136,7 +162,7 @@ h3 {
 
 .box .center sup {
   line-height: 0;
-  font-size: 0.8em;
+  font-size: 12px;
   font-weight: bold;
 }
 
@@ -165,16 +191,30 @@ h3 {
 }
 
 #screenplay .box .main .row .center span {
-  margin: 1em 0 0 0;
+  margin: 16px 0 0 0;
   display: block;
 }
 
 #screenplay .box .main .row .center p {
-  margin: 1em auto 0 auto;
+  margin: 16px auto 0 auto;
   width: 60%;
 }
 
 #screenplay .box .main .row .center p span {
-  margin: 1em 0 0 0;
+  margin: 16px 0 0 0;
   text-align: center;
+}
+
+img.full {
+  width: 80vw;
+  margin: auto;
+  display: block;
+}
+
+img.full.right {
+  margin: 0 0 0 20vw;
+}
+
+img.full.left {
+  margin: 0;
 }
