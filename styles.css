@@ -233,7 +233,7 @@ img.title {
   width: 100vw;
   height: auto;
   box-sizing: border-box;
-  padding: 30vh 10vw 10vh 10vw;
+  padding: 50vh 10vw 20vh 10vw;
   display: block;
   animation: invert 5s infinite;
 }
@@ -266,6 +266,9 @@ img.full.left {
 }
 
 @media screen and (max-width: 900px) {
+  img.title {
+    padding: 50vh 0 20vh 0;
+  }
   .box .right div {
     max-width: 250px;
   }
@@ -283,6 +286,7 @@ img.full.left {
   }
   .box .row {
     flex-flow: column;
+    padding-right: 0;
   }
   .box .left .date p {
     height: initial;
@@ -298,6 +302,7 @@ img.full.left {
 @media screen and (max-width: 700px) {
   .box {
     flex-flow: column;
+    padding: 20px;
   }
   .box .right {
     margin-top: 30px;
