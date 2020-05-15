@@ -5,7 +5,7 @@ window.addEventListener("load", function () {
 }, false);
 
 function setTitle() {
-  let titleLength = 20
+  let titleLength = 5
   let finalCount = 0
   const titleFinal = 'R_E_C_L_A_I_M_E_D'
   const interval = setInterval(() => {
@@ -22,18 +22,19 @@ function setTitle() {
     } else {
       document.title = titleFinal
       clearInterval(interval)
+      setTimeout(setTitle, 5000)
     }
-  }, 1000)
+  }, 500)
 }
 
 function setIcon() {
-  let count = 1;
+  let count = 0;
   setInterval(function () {
     var link = document.querySelector("link[rel*='icon']");
-    link.href = `/assets/icons/favicon_${count}.png`;
+    link.href = `/assets/icons/flavis-${count}.png`;
     count++;
-    if(count > 6) count = 1;
-  }, 1000)
+    if (count > 3) count = 0;
+  }, 500)
 }
 
 function createObserver() {
@@ -43,7 +44,7 @@ function createObserver() {
   const options = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.1,
+    threshold: 0.05,
   };
 
   const callback = function (entries, observer) {
