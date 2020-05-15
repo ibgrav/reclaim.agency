@@ -98,6 +98,10 @@ h3 {
 .box .right sup {
   transform: translateX(-1px);
   font-weight: bold;
+}
+
+.box .right sup a {
+  font-size: 1.5em;
   text-decoration: none;
 }
 
