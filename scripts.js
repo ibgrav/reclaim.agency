@@ -1,14 +1,27 @@
+let titleInterval, iconInterval;
+
 window.addEventListener("load", function () {
-  createObserver();
+  lazyObservers();
+  forwardObserver();
   setTitle();
   setIcon();
 }, false);
 
+document.addEventListener("visibilitychange", function () {
+  if (document.hidden) {
+    clearInterval(titleInterval);
+    clearInterval(iconInterval);
+  } else {
+    setTitle();
+    setIcon();
+  }
+}, false);
+
 function setTitle() {
-  let titleLength = 5
+  let titleLength = 3
   let finalCount = 0
   const titleFinal = 'R_E_C_L_A_I_M_E_D'
-  const interval = setInterval(() => {
+  titleInterval = setInterval(() => {
     console.log('SET TITLE')
     if (titleLength > 0) {
       titleLength--
@@ -21,40 +34,58 @@ function setTitle() {
       document.title = titleFinal.substring(0, finalCount)
     } else {
       document.title = titleFinal
-      clearInterval(interval)
+      clearInterval(titleInterval)
       setTimeout(setTitle, 5000)
     }
-  }, 500)
+  }, 1000)
 }
 
 function setIcon() {
-  let count = 0;
-  setInterval(function () {
-    var link = document.querySelector("link[rel*='icon']");
-    link.href = `/assets/icons/flavis-${count}.png`;
-    count++;
-    if (count > 3) count = 0;
-  }, 500)
+  let c = 1;
+  iconInterval = setInterval(function () {
+    const prev = document.querySelector(`#icon-${c === 0 ? 3 : c - 1}`);
+    const next = document.querySelector(`#icon-${c}`);
+    prev.rel = "";
+    next.rel = "shortcut icon";
+    c++;
+    if (c > 3) c = 0;
+  }, 2000)
 }
 
-function createObserver() {
+function forwardObserver() {
   const forward = document.querySelector("#forward");
   const bg = document.querySelector("#bg");
 
   const options = {
-    root: null,
-    rootMargin: '0px',
     threshold: 0.05,
   };
 
   const callback = function (entries, observer) {
     let entry = entries[0];
-    console.log({ entry });
-
     if (entry.isIntersecting) bg.classList.add('fade');
     else bg.classList.remove('fade');
   };
 
   const observer = new IntersectionObserver(callback, options);
   observer.observe(forward);
+}
+
+function lazyObservers() {
+  const lazies = document.querySelectorAll("[data-src]");
+  
+  const options = {
+    threshold: 0,
+    rootMargin: "0px 0px 300px 0px"
+  };
+
+  const callback = function (entries, observer) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.src) {
+        entry.target.src = entry.target.dataset.src
+      }
+    })
+  };
+
+  const observer = new IntersectionObserver(callback, options);
+  lazies.forEach(lazy => observer.observe(lazy));
 }

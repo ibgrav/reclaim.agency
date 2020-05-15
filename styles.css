@@ -1,3 +1,11 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  -ms-overflow-style: none;
+}
+
 html {
   font-size: 16px;
 }
@@ -55,10 +63,6 @@ h3 {
 
 #forward {
   background-image: linear-gradient(rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 1));
-}
-
-#screenplay {
-  background-color: #ffffff;
 }
 
 .box {
@@ -148,6 +152,11 @@ h3 {
 
 .blob.right {
   float: right;
+}
+
+#screenplay {
+  background-color: #ffffff;
+  padding-bottom: 100vh;
 }
 
 #screenplay .box .main .row .center span {
