@@ -99,9 +99,10 @@ function lazyObservers() {
 
   const callback = function (entries, observer) {
     entries.forEach(entry => {
-      if (entry.isIntersecting && !entry.target.src) {
+      if (entry.isIntersecting && entry.target.dataset.src) {
         entry.target.src = entry.target.dataset.src;
         entry.target.classList.add('fade-in');
+        entry.target.dataset.src = '';
       }
       entry.target.addEventListener("load", function () {
         setTimeout(function () {

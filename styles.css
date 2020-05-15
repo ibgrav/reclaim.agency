@@ -41,6 +41,18 @@ body {
   }
 }
 
+@keyframes invert {
+  0% {
+    filter: invert(0);
+  }
+  50% {
+    filter: invert(1);
+  }
+  100% {
+    filter: invert(0);
+  }
+}
+
 h2,
 h3 {
   text-align: center;
@@ -215,6 +227,15 @@ h3 {
 #screenplay .box .main .row .center p span {
   margin: 16px 0 0 0;
   text-align: center;
+}
+
+img.title {
+  width: 100vw;
+  height: auto;
+  box-sizing: border-box;
+  padding: 30vh 10vw 10vh 10vw;
+  display: block;
+  animation: invert 5s infinite;
 }
 
 img.full {
