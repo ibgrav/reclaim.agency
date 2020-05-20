@@ -206,7 +206,7 @@ h3 {
 }
 
 .blob.right {
-  float: right;
+  margin-left: 40vw;
 }
 
 #screenplay {
@@ -275,7 +275,7 @@ img.full.left {
     width: 100vw;
   }
   .blob.right {
-    float: none;
+    margin-left: 0;
   }
   img.full {
     width: 100vw;
