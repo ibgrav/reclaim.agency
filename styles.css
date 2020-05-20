@@ -233,7 +233,7 @@ video.title {
   width: 100vw;
   height: auto;
   box-sizing: border-box;
-  padding: 50vh 10vw 20vh 10vw;
+  padding-top: 15vh;
   display: block;
 }
 
