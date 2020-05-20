@@ -41,6 +41,18 @@ body {
   }
 }
 
+@keyframes invert {
+  0% {
+    filter: invert(0);
+  }
+  50% {
+    filter: invert(1);
+  }
+  100% {
+    filter: invert(0);
+  }
+}
+
 h2,
 h3 {
   text-align: center;
@@ -148,6 +160,10 @@ h3 {
   display: block;
 }
 
+.box .left .date img.large {
+  width: 80%;
+}
+
 .box .left .date p {
   opacity: 0;
   transition: opacity 500ms;
@@ -195,7 +211,7 @@ h3 {
 
 #screenplay {
   background-color: #ffffff;
-  padding-bottom: 100vh;
+  padding-bottom: 80vh;
 }
 
 #screenplay .box .main .row .center span {
@@ -211,6 +227,15 @@ h3 {
 #screenplay .box .main .row .center p span {
   margin: 16px 0 0 0;
   text-align: center;
+}
+
+img.title {
+  width: 100vw;
+  height: auto;
+  box-sizing: border-box;
+  padding: 50vh 10vw 20vh 10vw;
+  display: block;
+  animation: invert 5s infinite;
 }
 
 img.full {
@@ -229,4 +254,72 @@ img.full.left {
 
 .box img.full {
   width: 50vw;
+}
+
+@media screen and (max-width: 1200px) {
+  .box .main {
+    flex: 3;
+  }
+  .box .center {
+    flex: 2;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  img.title {
+    padding: 50vh 0 20vh 0;
+  }
+  .box .right div {
+    max-width: 250px;
+  }
+  .blob {
+    width: 100vw;
+  }
+  .blob.right {
+    float: none;
+  }
+  img.full {
+    width: 100vw;
+  }
+  img.full.right {
+    margin: 0;
+  }
+  .box .row {
+    flex-flow: column;
+    padding-right: 0;
+  }
+  .box .left .date p {
+    height: initial;
+    opacity: 1;
+    margin: 0;
+    transition: none;
+  }
+  .box .left .date img {
+    margin: 0 auto 20px auto;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .box {
+    flex-flow: column;
+    padding: 20px;
+  }
+  .box .right {
+    margin-top: 30px;
+  }
+  .box .right div {
+    max-width: 80%;
+  }
+  .box .left {
+    padding-right: 0;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .box .right div {
+    max-width: 100%;
+  }
+  #screenplay .box .main .row .center p {
+    width: 80%;
+  }
 }

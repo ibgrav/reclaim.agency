@@ -58,7 +58,7 @@ function forwardObserver() {
   const bg = document.querySelector("#bg");
 
   const options = {
-    threshold: 0.05,
+    threshold: 0.01,
   };
 
   const callback = function (entries, observer) {
@@ -94,14 +94,15 @@ function lazyObservers() {
 
   const options = {
     threshold: 0,
-    rootMargin: "0px 0px 300px 0px"
+    rootMargin: "300px 0px 300px 0px"
   };
 
   const callback = function (entries, observer) {
     entries.forEach(entry => {
-      if (entry.isIntersecting && !entry.target.src) {
+      if (entry.isIntersecting && entry.target.dataset.src) {
         entry.target.src = entry.target.dataset.src;
         entry.target.classList.add('fade-in');
+        entry.target.dataset.src = '';
       }
       entry.target.addEventListener("load", function () {
         setTimeout(function () {
