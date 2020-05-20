@@ -201,6 +201,10 @@ h3 {
   display: block;
 }
 
+.blob.full {
+  width: 100vw;
+}
+
 .blob.center {
   margin: auto;
 }
