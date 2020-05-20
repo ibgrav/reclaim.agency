@@ -91,12 +91,12 @@ const Right = styled.div`
     }
 `
 
-export default ({ left, center, right }) => (
+export default ({ left, body, right }) => (
     <Box>
         <Main>
             <Span>
                 <Left>{left}</Left>
-                <Center>{center}</Center>
+                <Center>{body}</Center>
             </Span>
         </Main>
         <Right>{right}</Right>
